@@ -59,6 +59,7 @@ vagrant.
 If the following files are in there then you are ready to run the project!
 
 **1. catalog**
+<br/>
 **2. Vagrantfile**
 
 **Note: You may ignore the other files but don't delete them!**
