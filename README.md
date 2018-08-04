@@ -35,9 +35,7 @@ the preloaded vagrant database configuration from my GitHub.
 
 <br/>
 
-[FSND-Virtual-Machine](https://s3.amazonaws.com/video.udacity-data.com/topher/2018/April/5acfbfa3_fsnd-virtual-machine/fsnd-virtual-machine.zip)
-
-[newsdata.zip](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip)
+[Item-Catalog-App](https://github.com/mwz210/Item-Catalog-App)
 
 <br/>
 
@@ -45,34 +43,25 @@ If all goes well, then you should see two additional folders on your desktop:
 
 <br/>
 
-  **1. newsdata-1**  
-
-  **2. FSND-Virtual-Machine**
+  **1. Item-Catalog-App-master**  
 
 <br/>
 
-Now, move the file **newsdata.sql** within newsdata folder into the folder
-**vagrant** within FSND-Virtual-Machine.  
-
-<br/>
-
-To actually run this project, we will need to have **logs.py**, which is in this
-GitHub repository, to be inside folder vagrant as well. Download logs.py and
-move it into vagrant.
-
-<br/>
 
 ### Step 3: Finish Installation ###
 ___
 
 If you have finished Step 1 and 2 then on your desktop you should have a folder
-called FSND-Virtual-Machine and within it, you should also see a file called
+called Item-Catalog-App-master and within it, you should also see a folder called
 vagrant.  
 
-Go into the vagrant folder and check if you have the files **newsdata.sql** and
-**logs.py**.
 
-If both files are in there then you are ready to run the project!
+If the following files are in there then you are ready to run the project!
+
+**1. catalog**
+**2. Vagrantfile**
+
+**Note: You may ignore the other files but don't delete them!**
 
 <br/>
 
@@ -82,7 +71,7 @@ If both files are in there then you are ready to run the project!
 ___
 
 First, open up Git Bash and then navigate to the folder **vagrant** within
-the folder FSND-Virtual-Machine on your Desktop.  
+the folder Item-Catalog-App-master on your Desktop.  
 
 Once you have reached into the folder vagrant, I want you to run the following
 commands while waiting in between each operation so they finish:
@@ -102,11 +91,12 @@ sign into the OS as a user which then means you can start using the Linux OS**
 ___
 
 You are almost there! Now that we are in the Linux OS on our shell session,
-there is two more commands to run:  
+there is three more commands to run:  
 
 ```
 cd ../../vagrant  
-psql -d news -f newsdata.sql  
+python database_setup.py
+python fill_database.py  
 ```
 
 Running these two commands will build the database this project works with.  
@@ -116,15 +106,15 @@ Running these two commands will build the database this project works with.
 ### Run the Python File ###
 ___
 
-Finally, we actually get to see our reports! Now within the Linux OS, we should
-still be in the same location.
+Finally, we actually get to start the web application! Now within the Linux OS,
+we should still be in the same location.
 
 <br/>
 
 Run the following command:
 
 ```
-python logs.py  
+python project.py  
 ```
 
 <br/>
@@ -132,10 +122,10 @@ python logs.py
 If the above gives an error run this command instead:
 
 ```
-python3 logs.py
+python3 project.py
 ```
 
 <br/>
 
-Wait for a little and the reports will come in! A sample report is in the
-example_output.txt and its provided within this same repository.
+Wait for a little and then go on your favorite web browser. In your browser,
+visit http://localhost:8000 to see the wonder and not so wonderful project!.
