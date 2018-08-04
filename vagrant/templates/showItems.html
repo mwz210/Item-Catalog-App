@@ -1,0 +1,64 @@
+{% extends "main.html" %}
+{% block content %}
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+            mdl-layout--fixed-header">
+  {% include "header.html" %}
+  <div class="mdl-layout__drawer mdl-color--blue-400 mdl-color-text--black drawer">
+    <span class="mdl-layout-title">Coding Topics</span>
+    <nav class="mdl-navigation mdl-color--blue-200 navigation">
+      {% for category in categories%}
+      <a class="mdl-navigation__link link "
+        href="{{url_for('showCategoryItems', category_name=category.name)}}">
+        <strong>{{category.name}}</strong>
+      </a>
+      {% endfor %}
+    </nav>
+    <a href="{{url_for('createCategory')}}">
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect
+        mdl-button--accent mdl-color--red-400 create-cat-button">
+        Create Topic
+      </button>
+    </a>
+  </div>
+  <main class="mdl-layout__content body">
+    <div class="col-md-12 category-header">
+      <form class="CRUD-button" action="{{url_for('editCategory', category_name=category.name)}}">
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect
+          mdl-button--accent mdl-color--orange-400">
+          Edit Topic
+        </button>
+      </form>
+      <form class="CRUD-button" action="{{url_for('deleteCategory', category_name=category.name)}}">
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect
+          mdl-button--accent mdl-color--red-400">
+          Delete Topic
+        </button>
+      </form>
+
+      <form class="CRUD-button" action="{{url_for('createItem', category_name=category.name)}}">
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect
+          mdl-button--accent mdl-color--green-400">
+          Create Problems
+        </button>
+      </form>
+
+      <h1 class="topic-header"> {{category.name}} </h1>
+      <h3 class="intro"> Introduction </h3>
+      <p class="topic-desc"> {{category.description}} </p>
+      <h3> Problems and Tips </h3>
+      <div class="items">
+        <ul>
+          {% for item in items%}
+          <li>
+            <a href="{{url_for('showItem', category_name=category.name, item_name=item.name)}}">
+              <strong> {{item.name}} </strong>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}
