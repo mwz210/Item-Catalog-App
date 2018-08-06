@@ -14,12 +14,12 @@
       </a>
       {% endfor %}
     </nav>
-    <a href="{{url_for('createCategory')}}">
+    <form action="{{url_for('createCategory')}}">
       <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect
         mdl-button--accent mdl-color--red-400 create-cat-button">
         Create Topic
       </button>
-    </a>
+    </form>
   </div>
   <main class="mdl-layout__content body">
     <div class="col-md-12 category-header">
